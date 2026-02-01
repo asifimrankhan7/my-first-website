@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asif Imran Khan - Creative Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <nav class="glass-nav">
+      <div class="logo">
+        <img src="Logo.png" alt="AIK" />
+        <span>The Lone Wolf</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="BG Vid.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="reveal-text">Designing</span>
+            <span class="reveal-text">The</span>
+            <span class="reveal-text highlight">Future</span>
+          </h1>
+          <p class="hero-subtitle">Creative Developer & UI/UX Designer</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-glass">View Work</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
+          </div>
+        </div>
+
+        <button class="scroll-down-btn" aria-label="Scroll Down">
+          <div class="mouse">
+            <div class="wheel"></div>
+          </div>
+        </button>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section about-section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Hello! I'm Wolf, a passionate developer based in India. I
+                specialize in building exceptional digital experiences that
+                merge clean code with stunning design.
+              </p>
+              <p>
+                With a background in full-stack development and a keen eye for
+                detail, I transform complex problems into intuitive,
+                user-friendly solutions.
+              </p>
+              <div class="skills-list">
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>CSS</span>
+                <span>CSS3</span>
+                <span>UI/UX</span>
+                <span>Python</span>
+              </div>
+            </div>
+            <div class="about-stats">
+              <div class="stat-card">
+                <h3>3+</h3>
+                <p>Years Experience</p>
+              </div>
+              <div class="stat-card">
+                <h3>50+</h3>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stat-card">
+                <h3>100%</h3>
+                <p>Client Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="container">
+          <h2 class="section-title">Selected Works</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-image">
+                <div class="placeholder-img color-1"></div>
+              </div>
+              <div class="project-info">
+                <h3>E-Commerce Dashboard</h3>
+                <p>
+                  A comprehensive dashboard for online retailers with real-time
+                  analytics.
+                </p>
+                <div class="tags"><span>React</span><span>Chart.js</span></div>
+                <a href="#" class="btn-link">View Project →</a>
+              </div>
+            </article>
+            <!-- Project 2 -->
+            <article class="project-card">
+              <div class="project-image">
+                <div class="placeholder-img color-2"></div>
+              </div>
+              <div class="project-info">
+                <h3>Neon Portfolio</h3>
+                <p>
+                  A dark-themed portfolio website featuring 3D animations and
+                  glassmorphism.
+                </p>
+                <div class="tags">
+                  <span>HTML/CSS</span><span>Three.js</span>
+                </div>
+                <a href="#" class="btn-link">View Project →</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-image">
+                <div class="placeholder-img color-3"></div>
+              </div>
+              <div class="project-info">
+                <h3>AI Chat Application</h3>
+                <p>
+                  Smart messaging platform powered by advanced natural language
+                  processing.
+                </p>
+                <div class="tags">
+                  <span>Python</span><span>OpenAI API</span>
+                </div>
+                <a href="#" class="btn-link">View Project →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="contact-box">
+            <form id="contactForm" class="glass-form">
+              <div class="input-group">
+                <input type="text" id="name" required placeholder=" " />
+                <label for="name">Your Name</label>
+              </div>
+              <div class="input-group">
+                <input type="email" id="email" required placeholder=" " />
+                <label for="email">Your Email</label>
+              </div>
+              <div class="input-group">
+                <textarea
+                  id="message"
+                  rows="4"
+                  required
+                  placeholder=" "
+                ></textarea>
+                <label for="message">Message</label>
+              </div>
+              <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 Asif Imran Khan. Made with <span class="heart">♥</span> and
+        Code.
+      </p>
+    </footer>
+  </body>
+</html>
