@@ -47,7 +47,7 @@ export const Services = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-50 dark:bg-[#080808]" id="services">
+    <section className="py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-[#080808]" id="services">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="mb-16 md:mb-24 reveal" ref={revealRef}>
           <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Services</p>

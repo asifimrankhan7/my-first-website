@@ -88,7 +88,7 @@ export const Projects = () => {
   const revealRef = useReveal();
 
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-[#050505]" id="projects">
+    <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-[#050505]" id="projects">
       <div className="container mx-auto px-6 max-w-6xl">
         
         <div className="mb-16 md:mb-24 reveal" ref={revealRef}>

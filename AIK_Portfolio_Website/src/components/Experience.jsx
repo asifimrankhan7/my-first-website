@@ -5,7 +5,7 @@ const ExperienceItem = ({ exp }) => {
   const expRef = useReveal();
   
   return (
-    <div ref={expRef} className="reveal relative pl-8 md:pl-0">
+    <div ref={expRef} className="reveal relative pl-12 md:pl-0">
       
       {/* Timeline Line for Mobile */}
       <div className="md:hidden absolute left-0 top-2 bottom-0 w-px bg-slate-200 dark:bg-slate-800"></div>
@@ -85,7 +85,7 @@ export const Experience = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-50 dark:bg-[#080808]" id="experience">
+    <section className="py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-[#080808]" id="experience">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="mb-16 reveal" ref={revealRef}>
           <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Work Experience</p>

@@ -37,7 +37,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-slate-50 dark:bg-[#080808]" id="contact">
+    <section className="py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-[#080808]" id="contact">
       <div className="container mx-auto px-6 max-w-4xl text-center">
         
         <div className="reveal mb-12 md:mb-16" ref={revealRef}>

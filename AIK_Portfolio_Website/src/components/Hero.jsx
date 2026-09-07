@@ -19,7 +19,7 @@ export const Hero = () => {
             </span>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[1.05] tracking-tight mb-8 text-slate-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold leading-[1.05] tracking-tight mb-8 text-slate-900 dark:text-white">
             Frontend Engineer specializing in <span className="text-slate-400 dark:text-slate-500">design systems</span> & <span className="text-slate-400 dark:text-slate-500">performance.</span>
           </h1>
           

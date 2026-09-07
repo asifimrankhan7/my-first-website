@@ -6,7 +6,7 @@ export const About = () => {
   const rightColRef = useReveal();
 
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-[#050505]" id="about">
+    <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-[#050505]" id="about">
       <div className="container mx-auto px-6 max-w-6xl">
         
         <div className="mb-16 md:mb-24 reveal" ref={containerRef}>
