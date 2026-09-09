@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #00d6c9;
-  --color-brand-hover: #00a79d;
+  --color-brand: #111111;
   --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Playfair Display', serif;
 }
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -15,20 +14,31 @@
   }
   
   body {
-    @apply antialiased text-slate-900 bg-white transition-colors duration-300 overflow-x-hidden;
+    @apply antialiased text-[#111111] bg-[#fdfdfc] font-sans overflow-x-hidden;
   }
   
-  .dark body {
-    @apply text-white bg-[#050505];
+  /* Minimal Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.4);
   }
 }
 
 @layer utilities {
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .reveal.visible {
@@ -36,19 +46,11 @@
     transform: translateY(0);
   }
   
-  .glass-header {
-    @apply backdrop-blur-xl bg-white/80 border-b border-slate-100;
+  .editorial-border {
+    @apply border-b border-[#111111]/10;
   }
   
-  [data-theme="dark"] .glass-header {
-    @apply bg-[#050505]/80 border-white/5;
-  }
-  
-  .glass-card {
-    @apply backdrop-blur-lg bg-white border border-slate-100 shadow-[0_18px_40px_rgba(3,18,17,0.09)];
-  }
-  
-  [data-theme="dark"] .glass-card {
-    @apply bg-[#202020] border-[#00d6c9]/20 shadow-[0_18px_45px_rgba(0,0,0,0.35)];
+  .editorial-text {
+    @apply text-[#111111]/70 font-light leading-relaxed;
   }
 }

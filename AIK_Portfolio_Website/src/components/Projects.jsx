@@ -36,49 +36,52 @@ const projectsData = [
   }
 ];
 
-const ProjectCard = ({ project }) => {
+const ProjectGalleryCard = ({ project, index }) => {
   const projectRef = useReveal();
   
   return (
     <article 
       ref={projectRef}
-      className="reveal group bg-white dark:bg-[#101010] border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden flex flex-col hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-emerald-900/10 transition-all duration-300"
+      className="reveal flex flex-col group"
     >
-      <div className="relative aspect-[4/3] sm:aspect-video md:aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-[#151515]">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 dark:group-hover:bg-black/20 transition-colors duration-300"></div>
-      </div>
-      
-      <div className="p-6 sm:p-8 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-          {project.title}
-        </h3>
-        
-        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-          {project.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-8">
-          {project.tech.map(tech => (
-            <span key={tech} className="px-2.5 py-1 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 rounded text-xs font-mono font-medium">
-              {tech}
-            </span>
-          ))}
+      <a 
+        href={project.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block relative w-full overflow-hidden bg-[#f0f0f0] mb-6"
+      >
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+            loading="lazy"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
+          />
+          {/* Subtle dark overlay on hover */}
+          <div className="absolute inset-0 bg-[#111111]/0 group-hover:bg-[#111111]/10 transition-colors duration-700"></div>
+          
+          {/* Elegant Floating Icon */}
+          <div className="absolute top-6 right-6 w-14 h-14 bg-[#fdfdfc] rounded-full flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 shadow-xl border border-[#111111]/10">
+            <ExternalLink className="w-6 h-6 text-[#111111]" />
+          </div>
         </div>
-
-        <a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors w-max"
-        >
-          View Project <ExternalLink className="w-4 h-4" />
-        </a>
+      </a>
+      
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-between items-start gap-4">
+          <h3 className="font-serif text-2xl md:text-3xl text-[#111111] tracking-tight group-hover:opacity-70 transition-opacity">
+            {project.title}
+          </h3>
+          <span className="text-xs font-bold tracking-widest uppercase text-[#111111]/40 mt-2 shrink-0">
+            0{index + 1}
+          </span>
+        </div>
+        <p className="text-xs font-bold tracking-widest uppercase text-[#111111]/60">
+          {project.tech.slice(0, 2).join(' — ')}
+        </p>
       </div>
     </article>
   );
@@ -88,21 +91,24 @@ export const Projects = () => {
   const revealRef = useReveal();
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-[#050505]" id="projects">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-24 md:py-32 bg-[#fdfdfc]" id="projects">
+      <div className="container mx-auto px-6 max-w-7xl">
         
-        <div className="mb-16 md:mb-24 reveal" ref={revealRef}>
-          <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Portfolio</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-            Featured Projects.
+        <div className="mb-20 md:mb-32 reveal" ref={revealRef}>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#111111]/50 mb-4">Selected Work</p>
+          <div className="w-12 h-px bg-[#111111]/20 mb-8"></div>
+          <h2 className="font-serif text-[3rem] md:text-[4rem] leading-none tracking-tight text-[#111111] italic">
+            Visual <br className="hidden sm:block" />
+            Gallery.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-y-24 items-start">
+          {projectsData.map((project, index) => (
+            <ProjectGalleryCard key={project.id} project={project} index={index} />
           ))}
         </div>
+        
       </div>
     </section>
   );

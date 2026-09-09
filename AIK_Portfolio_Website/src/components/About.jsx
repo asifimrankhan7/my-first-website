@@ -1,111 +1,76 @@
 import { useReveal } from '../hooks/useReveal';
 
 export const About = () => {
-  const containerRef = useReveal();
-  const leftColRef = useReveal();
-  const rightColRef = useReveal();
+  const titleRef = useReveal();
+  const quoteRef = useReveal();
+  const textRef = useReveal();
+  const statsRef = useReveal();
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-[#050505]" id="about">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-24 md:py-32 bg-[#fdfdfc]" id="about">
+      <div className="container mx-auto px-6 max-w-7xl">
         
-        <div className="mb-16 md:mb-24 reveal" ref={containerRef}>
-          <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">About</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-            Identity & Expertise.
+        <div className="mb-20 reveal" ref={titleRef}>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#111111]/50 mb-4">Background</p>
+          <div className="w-12 h-px bg-[#111111]/20 mb-8"></div>
+          <h2 className="font-serif text-[3rem] md:text-[4rem] leading-none tracking-tight text-[#111111] italic">
+            Precision & <br className="hidden sm:block" />
+            Empathy.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
-          {/* Left Column: Image & Profile */}
-          <div className="lg:col-span-4 reveal" ref={leftColRef}>
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-200 dark:bg-slate-800 mb-6 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <img 
-                src="/assets/images/profile-optimized.webp" 
-                alt="Asif Imran Khan" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
-                loading="lazy"
-              />
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Asif Imran Khan</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
-                Front-End Developer at AIK Studio focused on accessible digital experiences.
-              </p>
-              
-              <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider rounded border border-emerald-100 dark:border-emerald-500/20">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                Available for freelance
-              </div>
-            </div>
+          {/* Large Pull Quote */}
+          <div className="lg:col-span-5 reveal" ref={quoteRef}>
+            <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.4] text-[#111111] tracking-tight">
+              "My journey did not start behind a screen, but at the bedside. I build applications with the same care I once used in healthcare."
+            </p>
           </div>
 
-          {/* Right Column: Content */}
-          <div className="lg:col-span-8 reveal" ref={rightColRef}>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
-              Building digital experiences with precision and empathy.
-            </h3>
+          {/* Body Text & Stack */}
+          <div className="lg:col-span-7 flex flex-col gap-16 reveal" ref={textRef}>
             
-            <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12 lg:mb-16">
-              My journey did not start behind a screen, but at the bedside. As a Registered Nurse, I learned to navigate high-pressure environments where precision and empathy are everything. In 2025, I decided to channel that same dedication into building digital solutions. Today, I build user-centric applications and accessible front-end experiences with the same care and attention to detail I once used in healthcare.
-            </p>
+            <div className="text-[#111111]/70 font-light leading-relaxed text-lg">
+              <p className="mb-6">
+                As a Registered Nurse, I learned to navigate high-pressure environments where precision and empathy are everything. In 2025, I decided to channel that same dedication into building digital solutions. 
+              </p>
+              <p>
+                Today, I focus on accessible front-end experiences, creating user-centric applications that are both robust in architecture and intuitive in design.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-              
-              {/* Competencies */}
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-slate-800 pb-3">
-                  Core Competencies
-                </h4>
-                <ul className="space-y-6">
-                  {[
-                    { label: 'Front-End Development', value: '95' },
-                    { label: 'Healthcare Administration', value: '92' },
-                    { label: 'User-Centered Problem Solving', value: '90' }
-                  ].map(comp => (
-                    <li key={comp.label}>
-                      <div className="flex justify-between items-center mb-2.5">
-                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{comp.label}</span>
-                        <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400">{comp.value}%</span>
-                      </div>
-                      {/* Architectural minimalist progress bar */}
-                      <div className="w-full h-[2px] bg-slate-200 dark:bg-slate-800 relative rounded-full overflow-hidden">
-                        <div 
-                          className="absolute top-0 left-0 h-full bg-slate-900 dark:bg-white rounded-full transition-all duration-1000 ease-out" 
-                          style={{ width: `${comp.value}%` }}
-                        ></div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8" ref={statsRef}>
               {/* Stack */}
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-slate-800 pb-3">
+              <div className="bg-[#111111]/[0.02] backdrop-blur-md rounded-2xl p-8 border border-[#111111]/10 shadow-sm">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
                   Technical Stack
                 </h4>
-                <div className="flex flex-wrap gap-2.5">
-                  {['React', 'JavaScript', 'PHP', 'HTML', 'CSS', 'Tailwind', 'HTTPS', 'Accessibility', 'Medical Coding', 'Critical Care'].map(tech => (
-                    <span 
-                      key={tech} 
-                      className="px-3 py-1.5 bg-white dark:bg-[#101010] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded text-xs font-mono font-medium hover:border-emerald-500/30 dark:hover:border-emerald-500/30 transition-colors cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="flex flex-col gap-3 text-[#111111]/70 font-light leading-relaxed text-sm">
+                  <span>React / JavaScript / PHP</span>
+                  <span>HTML / CSS / Tailwind</span>
+                  <span>Accessible UI Development</span>
+                  <span>Responsive Design Systems</span>
                 </div>
               </div>
 
+              {/* Core Competencies */}
+              <div className="bg-[#111111]/[0.02] backdrop-blur-md rounded-2xl p-8 border border-[#111111]/10 shadow-sm">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-[#111111] mb-6 border-b border-[#111111]/10 pb-4">
+                  Core Competencies
+                </h4>
+                <div className="flex flex-col gap-3 text-[#111111]/70 font-light leading-relaxed text-sm">
+                  <span>Front-End Engineering</span>
+                  <span>User-Centered Problem Solving</span>
+                  <span>Healthcare Administration</span>
+                  <span>Critical Care & Triage</span>
+                </div>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
+
       </div>
     </section>
   );

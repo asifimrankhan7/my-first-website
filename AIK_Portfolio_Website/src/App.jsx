@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Resume } from './pages/Resume';
-import CommandPalette from './components/CommandPalette';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -21,17 +18,10 @@ function App() {
     <ThemeProvider>
       <Router>
         <ScrollToTop />
-        <CommandPalette />
         <Routes>
           <Route 
             path="/" 
-            element={
-              <>
-                <Header />
-                <Home />
-                <Footer />
-              </>
-            } 
+            element={<Home />} 
           />
           <Route path="/resume" element={<Resume />} />
         </Routes>
